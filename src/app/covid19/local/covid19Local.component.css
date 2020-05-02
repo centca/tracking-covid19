@@ -1,0 +1,170 @@
+/* Structure */
+@import "~@angular/material/prebuilt-themes/purple-green.css";
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  padding: 10px;
+  font-size: 15px;
+  width: 100%;
+  background-color: #2E342F;
+}
+
+.mat-paginator {
+  background-color: #2E342F;
+}
+
+.mat-select-value.ng-tns-c200-2 {
+    color:white;
+}
+
+.navbar-dark .navbar-nav .nav-link{
+  border-bottom-width: 5px;
+  border-bottom-style: solid;
+  border-bottom-color: red;
+}
+
+.mat-grid-tile {
+  color: white;
+  border-radius: 200px;
+}
+
+
+.font-col{
+  font-size: 34px;
+  font-family: 'Changa', sans-serif;
+}
+
+.row{
+  margin: 15px;
+}
+
+.fecha-style{
+  font-family: 'Changa', sans-serif;
+  color: white;
+  font-size: 20px;
+}
+
+
+div.col.align-self-center{
+  margin-top: 40px;
+  text-align-last: center;
+}
+
+div.col-12.text-center.titulo-pais{
+  color: white;
+  font-family: 'Changa', sans-serif;
+  font-size: 45px;
+  text-decoration: underline;
+  text-decoration-color: #6C3483;
+  margin-top: 30px;
+}
+
+td{
+    background-color: #2E342F;
+    font-family: 'Changa', sans-serif;
+    width: 250px;
+    color: white;
+}
+
+th{
+
+    background-color: #6C3483;
+    font-family: 'Changa', sans-serif;
+}
+
+th.mat-header-cell.cdk-header-cell{
+    font-size: 15px;
+}
+
+th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
+    padding: 0 10px 0 10px;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+}
+
+div.col.text-center {
+    margin: 40px 0 0px 0;
+}
+
+i.material-icons.regiones{
+    position: relative;
+    top: 6px;
+    background-color:  white;
+    font-weight:900;
+}
+
+div.col.tabla-pais{
+  margin-top: 40px;
+  font-size: 5px
+}
+
+button.btn.btn-default {
+  font-size: 15px;
+  color: #6C3483;
+  font-family: 'Changa', sans-serif;
+  background-color: white;
+  font-weight:900;
+  padding: 0 10px;
+  box-shadow: 5px 10px #6C3483;
+}
+
+@media screen and (max-width: 768px) {
+  button.btn.btn-default {
+    font-size: 15px;
+    color: #6C3483;
+    font-family: 'Changa', sans-serif;
+    background-color: white;
+    font-weight:900;
+    padding: 0 10px;
+    box-shadow: 5px 10px #6C3483;
+  }
+
+  div.dropdown-menu.show{
+    width: 1px;
+  }
+
+}
+
+button.btn.btn-default:focus {
+
+  outline:none !important;
+  outline-width: 0 !important;
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+}
+
+
+button.btn.btn-default.active {
+  text-decoration: none;
+}
+
+button.btn.btn-default.mapa{
+
+}
+
+.chart_div {
+  width: 100%;
+  height: 500px;
+}
+
+.regions_div {
+  width: 100%;
+  height: 500px;
+}
+
+@media screen and (max-width: 768px) {
+
+    .chart_div {
+      width: 100%;
+      height: 250px;
+    }
+
+    .regions_div {
+      width: 100%;
+      height: 250px;
+    }
+
+}

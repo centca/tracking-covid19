@@ -1,0 +1,109 @@
+<div class="container">
+  <div class="row">
+  	<div class="col align-self-center">
+      <select (change)="changedP($event)" class="form-control form-control-lg select-paises selectpicker" data-live-search="true">
+        <option *ngFor="let pais of listCode" data-tokens="pais.name" [value]="pais.name">
+          {{pais.name}}
+        </option>
+      </select>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+  	<div class="col-12 text-center titulo-pais">
+      {{paisCode.name}}
+    </div>
+  </div>
+  <div class="row">
+      <div class="col-12 regiones-boton text-center" *ngIf="isShowRegiones==true || isShowEspania == 'Spain' ">
+        <button class="btn btn-default regiones" (click)="getRegionesClick(paisCode.name)">MOSTRAR REGIONES <i class="material-icons regiones">keyboard_arrow_down</i></button>
+      </div>
+  </div>
+
+  <div *ngIf="isRegionActiva==true">
+    <mat-form-field class="example-container">
+      <mat-label>Filter</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Madrid">
+    </mat-form-field>
+
+    <div class="table-responsive">
+      <table mat-table [dataSource]="dataSource" class="table-color mat-elevation-z8">
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Región</th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="totalConfirmados">
+        <th mat-header-cell *matHeaderCellDef>Confirmados</th>
+        <td mat-cell *matCellDef="let element"> {{element.totalConfirmados}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="nuevosConfirmados">
+        <th mat-header-cell *matHeaderCellDef><i class="material-icons">trending_up</i></th>
+        <td mat-cell *matCellDef="let element"> {{element.nuevosConfirmados}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="totalMuertos">
+        <th mat-header-cell *matHeaderCellDef>Muertos</th>
+        <td mat-cell *matCellDef="let element"> {{element.totalMuertos}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="nuevosMuertos">
+        <th mat-header-cell *matHeaderCellDef><i class="material-icons" style="color:red;">trending_down</i></th>
+        <td mat-cell *matCellDef="let element"> {{element.nuevosMuertos}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="totalRecuperados">
+        <th mat-header-cell *matHeaderCellDef>Recuperados</th>
+        <td mat-cell *matCellDef="let element"> {{element.totalRecuperados}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="nuevosRecuperados">
+        <th mat-header-cell *matHeaderCellDef><i class="material-icons" style="color:green;">how_to_reg</i></th>
+        <td mat-cell *matCellDef="let element"> {{element.nuevosRecuperados}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </div>
+</div>
+
+<div class="row">
+	<div class="col tabla-pais">
+		<table class="table">
+
+			<tbody>
+				<tr>
+					<td>T. Confirmados</td>
+					<td>{{paisCode.totalConfirmados}}</td>
+				</tr>
+				<tr>
+					<td>N. Confirmados</td>
+					<td>{{paisCode.nuevosConfirmados}}</td>
+
+				</tr>
+				<tr>
+					<td>T. Muertos</td>
+					<td>{{paisCode.totalMuertos}}</td>
+
+				</tr>
+        <tr>
+					<td>N. Muertos</td>
+					<td>{{paisCode.nuevosMuertos}}</td>
+				</tr>
+        <tr>
+					<td>T. Recuperados</td>
+					<td>{{paisCode.totalRecuperados}}</td>
+				</tr>
+
+			</tbody>
+		</table>
+	</div>
+</div>
+
+</div>
+<div class="chart_div" id="chart_div"></div>

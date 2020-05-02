@@ -1,1 +1,88 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; background-color: #2E342F;}
+body { margin:0; font-family: 'Changa', sans-serif; }
+
+.navbar{
+  padding: 0 5px;
+  margin-bottom: 60px;
+}
+
+
+nav.navbar.navbar-expand.navbar-dark.bg-dark.main-nav{
+    background-color: black;
+    margin-bottom: 20px;
+}
+
+.navbar-expand .navbar-nav .nav-link{
+  padding-left: 50px;
+  padding-right:50px;
+  font-size: 25px;
+  font-family: 'Changa', sans-serif;
+  padding-top: 20px;
+  transform:scaleX(1.5);
+  text-decoration: line-through;
+
+}
+
+@media screen and (max-width: 768px) {
+  .navbar-expand .navbar-nav .nav-link{
+    padding-left: 50px;
+    padding-right:50px;
+    font-size: 15px;
+    letter-spacing: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+}
+
+.navbar-dark .navbar-nav .nav-link.active{
+  border-bottom-width: 5px;
+  border-bottom-style: solid;
+  border-bottom-color: #6C3483;
+  text-decoration: none;
+}
+
+input#mat-input-1.mat-input-element.mat-form-field-autofill-control.ng-tns-c84-3.cdk-text-field-autofill-monitored{
+  color:white;
+}
+
+.mat-figure{
+  opacity: 0.8;
+  background-color: white;
+}
+
+.mat-grid-list {
+  margin-bottom: 20px;
+}
+
+.content {
+  margin: 30px 10px 0px 10px;
+
+}
+
+.mat-grid-tile .mat-figure{
+  background-color: #2E342F;
+}
+
+.mat-select-value.ng-tns-c200-2 {
+    color:white;
+}
+
+.mat-form-field-infix{
+  font-size: 25px;
+  font-family: 'Changa', sans-serif;
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-infix{
+  border:0px;
+  margin-top: 6px
+}
+
+input#mat-input-0.mat-input-element.mat-form-field-autofill-control.ng-tns-c84-0.cdk-text-field-autofill-monitored{
+    color: white;
+}
+
+div.dropdown-menu.show{
+  width: 1px;
+}
