@@ -146,3 +146,7 @@ button.btn.btn-default.active {
 
   font-size: 60px;
 }
+
+input.mat-input-element {
+    color: white;
+}

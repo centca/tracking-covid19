@@ -196,7 +196,8 @@ export class Covid19Component implements OnInit, AfterViewInit{
                   0: { color: '#6C3483', lineDashStyle: [1, 1], pointSize: 5 },
                   1: { color: 'white', lineDashStyle: [1, 1], pointSize: 5}
                 },
-                legend:{position: 'bottom', textStyle: {color: 'white', fontSize: 16, fontName: 'Changa'}}
+                legend:{position: 'bottom', textStyle: {color: 'white', fontSize: 16, fontName: 'Changa'}},
+                chartArea:{left:'75',right:'10',width:'100%'}
               };
 
               var chart = new GoogleCharts.api.visualization.AreaChart(document.getElementById('chart_div'));

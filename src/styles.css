@@ -27,8 +27,8 @@ nav.navbar.navbar-expand.navbar-dark.bg-dark.main-nav{
 
 @media screen and (max-width: 768px) {
   .navbar-expand .navbar-nav .nav-link{
-    padding-left: 50px;
-    padding-right:50px;
+    padding-left: 40px;
+    padding-right:40px;
     font-size: 15px;
     letter-spacing: 0px;
     margin-left: 0px;

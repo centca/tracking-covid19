@@ -11,7 +11,7 @@ export class Covid19LocalService {
 
   constructor(private http: HttpClient) { }
 
-  private proxyurl = "https://cors-anywhere.herokuapp.com/";
+  private proxyurl = "https://morning-river-35554.herokuapp.com/";
   private urlBase = "https://api.covid19tracking.narrativa.com/api/country/";
   //Resultado global de todos los paises
   getByPais(pais:string, fecha: string): Observable<any> {

@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { Covid19Component } from './covid19/covid19.component';
 import { Covid19LocalComponent } from './covid19/local/covid19Local.component';
 import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 //Modulos Angular Material
 import {A11yModule} from '@angular/cdk/a11y';
@@ -65,7 +66,8 @@ import { Covid19LocalService } from './covid19/local/covid19Local.service';
     AppComponent,
     HeaderComponent,
     Covid19Component,
-    Covid19LocalComponent
+    Covid19LocalComponent,
+    FooterComponent
   ],
   imports: [
     HttpClientModule,
