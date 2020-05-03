@@ -99,6 +99,9 @@ button.btn.btn-default {
   div.col.text-center {
       margin: 20px 0 0px 0;
   }
+  .fecha-style{
+    font-size: 15px;
+  }
 
 }
 

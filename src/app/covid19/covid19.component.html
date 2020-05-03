@@ -48,37 +48,37 @@
 </mat-form-field>
 
 <div class="table-responsive">
-<table mat-table [dataSource]="dataSource" class="table-color mat-elevation-z8">
+<table mat-table [dataSource]="dataSource" matSort class="table-color mat-elevation-z8">
 
   <!-- Pais Column -->
   <ng-container matColumnDef="pais">
-    <th mat-header-cell *matHeaderCellDef>Pais</th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Pais</th>
     <td mat-cell *matCellDef="let element"> {{element.pais}} </td>
   </ng-container>
 
   <!-- Confirmados Column -->
   <ng-container matColumnDef="totalConfirmados">
-    <th mat-header-cell *matHeaderCellDef>Confirmados</th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Confirmados</th>
     <td mat-cell *matCellDef="let element"> {{element.totalConfirmados}} </td>
   </ng-container>
   <ng-container matColumnDef="nuevosConfirmados">
-    <th mat-header-cell *matHeaderCellDef><i class="material-icons">trending_up</i></th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header><i class="material-icons">trending_up</i></th>
     <td mat-cell *matCellDef="let element"> {{element.nuevosConfirmados}} </td>
   </ng-container>
 
   <!-- Muertos Column -->
   <ng-container matColumnDef="totalMuertos">
-    <th mat-header-cell *matHeaderCellDef>Muertos</th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Muertos</th>
     <td mat-cell *matCellDef="let element"> {{element.totalMuertos}} </td>
   </ng-container>
   <ng-container matColumnDef="nuevosMuertos">
-    <th mat-header-cell *matHeaderCellDef><i class="material-icons" style="color:red;">trending_down</i></th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header><i class="material-icons" style="color:red;">trending_down</i></th>
     <td mat-cell *matCellDef="let element"> {{element.nuevosMuertos}} </td>
   </ng-container>
 
   <!-- Recuperados Column -->
   <ng-container matColumnDef="totalRecuperados">
-    <th mat-header-cell *matHeaderCellDef>Recuperados</th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Recuperados</th>
     <td mat-cell *matCellDef="let element"> {{element.totalRecuperados}} </td>
   </ng-container>
 

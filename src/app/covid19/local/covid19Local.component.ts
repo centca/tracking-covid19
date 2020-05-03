@@ -1,6 +1,7 @@
-import { Component, OnInit, ViewChild, AfterViewInit  } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit, ChangeDetectorRef} from '@angular/core';
 import {ActivatedRoute,Router} from '@angular/router';
 import {MatTableDataSource} from '@angular/material/table';
+import {MatSort, Sort} from '@angular/material/sort';
 import {MatPaginator} from '@angular/material/paginator';
 import {Covid19LocalService} from './covid19Local.service';
 import {Region} from './covid19Local';
@@ -26,16 +27,35 @@ export class Covid19LocalComponent implements OnInit, AfterViewInit{
   nombrePaises: NombrePaises[] = [];
 
   //--------------Constructor---------------------------
-  constructor(private covid19LocalService: Covid19LocalService, private activatedRoute: ActivatedRoute, private router: Router) { }
+  constructor(private covid19LocalService: Covid19LocalService, private cdRef:ChangeDetectorRef) { }
 
   //-------------Paginacion----------------------------
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  displayedColumns: string[] = ['name', 'totalConfirmados','nuevosConfirmados','totalMuertos','nuevosMuertos', 'totalRecuperados','nuevosRecuperados'];
-  dataSource = new MatTableDataSource<Region>(this.regiones);
+  @ViewChild(MatSort, { static: true }) sort: MatSort;
+  @ViewChild(MatSort) set matSort(ms: MatSort) {
+    if(ms != undefined){
+      this.sort = ms;
+      const sortState: Sort = {active: 'totalConfirmados', direction: 'asc'};
+      this.sort.active = sortState.active;
+      this.sort.direction = sortState.direction;
+      this.sort.sortChange.emit(sortState);
+      this.sort.sort({
+        id: 'totalConfirmados',
+        start: 'asc',
+        disableClear: true
+    });
+    this.cdRef.detectChanges();
+
+  }
+ }
+
+  displayedColumns: string[] = [];
+  dataSource = new MatTableDataSource<Region>();
 
   ngAfterViewInit():void {
     setTimeout(() => jQuery(".selectpicker").selectpicker(),1500);
+
   }
 
   //-------------Filtro-------------------
@@ -143,12 +163,12 @@ export class Covid19LocalComponent implements OnInit, AfterViewInit{
           region.nuevosRecuperados = r["today_new_recovered"];
           this.regiones.push(region);
         }
-
-        this.dataSource = new MatTableDataSource<Region>(this.regiones)
+        this.displayedColumns = ['name', 'totalConfirmados','nuevosConfirmados','totalMuertos','nuevosMuertos', 'totalRecuperados','nuevosRecuperados']
+        this.dataSource = new MatTableDataSource<Region>(this.regiones);
         this.paginator._intl.itemsPerPageLabel="Items por página";
         this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
     });
-
 
   }
 

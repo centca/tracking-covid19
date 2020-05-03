@@ -1,7 +1,9 @@
 import { Component, OnInit, ViewChild, AfterViewInit,ElementRef } from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
+import {MatSort, Sort} from '@angular/material/sort';
 import {MatPaginator} from '@angular/material/paginator';
 import {Covid19Service} from './covid19.service';
+
 import {Pais} from './covid19';
 
 import {Confirmados} from './covid19';
@@ -36,6 +38,8 @@ export class Covid19Component implements OnInit, AfterViewInit{
   //-------------Paginacion-------------------
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
+  @ViewChild(MatSort, {static: true}) sort: MatSort;
+
   @ViewChild('chartElement') chartElement: ElementRef<HTMLElement>;
 
   //--------------Constructor---------------------------
@@ -48,6 +52,12 @@ export class Covid19Component implements OnInit, AfterViewInit{
     this.getGlobal();
     this.getGlobalResultado();
 
+    this.dataSource.sort = this.sort;
+    const sortState: Sort = {active: 'totalConfirmados', direction: 'desc'};
+    this.sort.active = sortState.active;
+    this.sort.direction = sortState.direction;
+    this.sort.sortChange.emit(sortState);
+
     this.breakpoint = (window.innerWidth <= 768) ? 1 : 3;
     this.getCharts('mapa');
 
@@ -55,11 +65,10 @@ export class Covid19Component implements OnInit, AfterViewInit{
 
   ngAfterViewInit() {
 
-    $(".btn.btn-default").click(function() {
-      $('.btn.btn-default').removeClass('active');
-      $(this).addClass('active');
-
-    });
+      $(".btn.btn-default").click(function() {
+        $('.btn.btn-default').removeClass('active');
+        $(this).addClass('active');
+      });
 
     this.paginator._intl.itemsPerPageLabel="Items por página";
     setTimeout(() => this.dataSource.paginator = this.paginator,500);
@@ -95,7 +104,6 @@ export class Covid19Component implements OnInit, AfterViewInit{
   //Get::::Resultado total de muertos, confirmados y recuperados:::::::::
   getGlobalResultado(): Pais{
     this.covid19Service.getGlobalResultado().subscribe(response => {
-      console.log(response["data"])
       for(let i of response["data"]){
         this.resultadoGlobal.totalConfirmados = i["confirmed"];
         this.resultadoGlobal.totalRecuperados = i["recovered"];
