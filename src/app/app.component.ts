@@ -19,6 +19,8 @@ addTag() {
    this.metaService.addTag({ name: 'description', content: 'Coronavirus (Covid19) - Estadísticas en tiempo real de todos los paises y también la regiones' });
    this.metaService.addTag({ name: 'robots', content: 'index,follow' });
    this.metaService.addTag({ name: 'language', content: 'Spanish' });
+   this.metaService.addTag({name: 'author', content: 'Juan Manuel Centeno Caballero'});
+   this.metaService.addTag({property: 'og:type', content: "website"});
    this.metaService.addTag({name: 'keywords', content: 'covid19,coronavirus,coronavirus españa,covid esp,corona virus españa, track, tracking covid19, coronavirus regiones,track coronavirus, corona'});
    this.metaService.addTag({ property: 'og:title', content: 'Datos Covid19 en tiempo real' });
 
