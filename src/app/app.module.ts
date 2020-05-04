@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Meta } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 //Componentes
@@ -121,7 +121,7 @@ import { Covid19LocalService } from './covid19/local/covid19Local.service';
     ScrollingModule,
     MatFormFieldModule
   ],
-  providers: [Covid19Service, Covid19LocalService],
+  providers: [Covid19Service, Covid19LocalService, Meta],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
